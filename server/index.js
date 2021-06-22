@@ -44,9 +44,9 @@ if (process.env.TESTING_ON_HEROKU === 'TRUE') {
 	app.use(express.static(buildPath));
 
 	// app.use(express.static(path.join(__dirname, `${process.env.FRONTEND_DIRECTORY_NAME}/build`)));
-	// app.get('/*', (req, res) => {
-	// 	res.sendFile(path.join(__dirname + `${process.env.FRONTEND_DIRECTORY_NAME}/build/index.html`));
-	// });
+	app.get('/*', (req, res) => {
+		res.sendFile(path.join(__dirname + '..' + `/build/index.html`));
+	});
 }
 
 app.listen(PORT, () => {
